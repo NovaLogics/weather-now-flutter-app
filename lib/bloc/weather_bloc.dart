@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:weather/weather.dart';
 import 'package:weather_now/data/data.dart';
@@ -21,6 +22,11 @@ class WeatherBloc extends Bloc<WeatherBlocEvent, WeatherBlocState> {
           position.latitude,
           position.longitude,
         );
+
+        if (kDebugMode) {
+          print(weather);
+        }
+
         emit(WeatherBlocSuccess(weather));
       } catch (e) {
         emit(WeatherBlocFailure());
