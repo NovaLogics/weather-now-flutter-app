@@ -129,12 +129,12 @@ class HomeScreen extends StatelessWidget {
                                   "Sunrise",
                                   style: TextStyle(
                                     color: Colors.white,
-                                   fontSize: 16,
+                                    fontSize: 16,
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
-                                    const SizedBox(height: 3),
-                                    Text(
+                                const SizedBox(height: 3),
+                                Text(
                                   "5:34 am",
                                   style: TextStyle(
                                     color: Colors.white,
@@ -146,7 +146,7 @@ class HomeScreen extends StatelessWidget {
                             )
                           ],
                         ),
-                         Row(
+                        Row(
                           children: [
                             Image.asset(
                               "assets/12.png",
@@ -164,8 +164,8 @@ class HomeScreen extends StatelessWidget {
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
-                                    const SizedBox(height: 3),
-                                    Text(
+                                const SizedBox(height: 3),
+                                Text(
                                   "5:34 am",
                                   style: TextStyle(
                                     color: Colors.white,
@@ -185,7 +185,7 @@ class HomeScreen extends StatelessWidget {
                         color: Colors.grey,
                       ),
                     ),
-                     Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
@@ -202,12 +202,12 @@ class HomeScreen extends StatelessWidget {
                                   "Temp Max",
                                   style: TextStyle(
                                     color: Colors.white,
-                                   fontSize: 16,
+                                    fontSize: 16,
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
-                                    const SizedBox(height: 3),
-                                    Text(
+                                const SizedBox(height: 3),
+                                Text(
                                   "32°C",
                                   style: TextStyle(
                                     color: Colors.white,
@@ -219,7 +219,7 @@ class HomeScreen extends StatelessWidget {
                             )
                           ],
                         ),
-                         Row(
+                        Row(
                           children: [
                             Image.asset(
                               "assets/14.png",
@@ -237,8 +237,8 @@ class HomeScreen extends StatelessWidget {
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
-                                    const SizedBox(height: 3),
-                                    Text(
+                                const SizedBox(height: 3),
+                                Text(
                                   "22°C",
                                   style: TextStyle(
                                     color: Colors.white,
