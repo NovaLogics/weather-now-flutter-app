@@ -1,4 +1,4 @@
-part of 'weather_bloc_bloc.dart';
+part of 'weather_bloc.dart';
 
 sealed class WeatherBlocState extends Equatable {
   const WeatherBlocState();

@@ -7,8 +7,8 @@ import 'package:weather_now/data/data.dart';
 part 'weather_bloc_event.dart';
 part 'weather_bloc_state.dart';
 
-class WeatherBlocBloc extends Bloc<WeatherBlocEvent, WeatherBlocState> {
-  WeatherBlocBloc() : super(WeatherBlocInitial()) {
+class WeatherBloc extends Bloc<WeatherBlocEvent, WeatherBlocState> {
+  WeatherBloc() : super(WeatherBlocInitial()) {
     on<WeatherBlocEvent>((event, emit) async {
       emit(WeatherBlocLoading());
       try {
