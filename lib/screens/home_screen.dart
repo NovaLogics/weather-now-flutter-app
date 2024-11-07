@@ -29,9 +29,7 @@ class HomeScreen extends StatelessWidget {
                   height: 300,
                   width: 300,
                   decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.deepPurple
-                  ),
+                      shape: BoxShape.circle, color: Colors.deepPurple),
                 ),
               ),
               Align(
@@ -40,9 +38,7 @@ class HomeScreen extends StatelessWidget {
                   height: 300,
                   width: 300,
                   decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.deepPurple
-                  ),
+                      shape: BoxShape.circle, color: Colors.deepPurple),
                 ),
               ),
               Align(
@@ -50,26 +46,40 @@ class HomeScreen extends StatelessWidget {
                 child: Container(
                   height: 300,
                   width: 600,
-                  decoration: BoxDecoration(
-                    color: Colors.orange
-                  ),
+                  decoration: BoxDecoration(color: Colors.orange),
                 ),
               ),
               BackdropFilter(
-                filter: ImageFilter.blur(sigmaX:100.0, sigmaY: 100.0),
+                filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 100.0),
                 child: Container(
                   decoration: BoxDecoration(color: Colors.transparent),
                 ),
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                child: const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Colombo",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      "Good Morning",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 25,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
-                  child: Column(
-                    children: [
-                      
-                    ],
-                  ),
-                )
+              )
             ],
           ),
         ),
