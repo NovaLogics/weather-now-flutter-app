@@ -78,16 +78,40 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     Image.asset(
-                      "assets/1.png"
+                      "assets/1.png",
                     ),
-                    const Text(
-                      "28°C",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 55,
-                        fontWeight: FontWeight.w600,
+                    const Center(
+                      child: Text(
+                        "28°C",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 55,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
+                    const Center(
+                      child: Text(
+                        "THUNDERSTORM",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    const Center(
+                      child: Text(
+                        "Friday 7 - 06.20pm",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                    ),
+                      const SizedBox(height: 30),
                   ],
                 ),
               )
