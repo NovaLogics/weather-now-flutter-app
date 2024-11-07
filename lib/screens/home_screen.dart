@@ -129,8 +129,8 @@ class HomeScreen extends StatelessWidget {
                                   "Sunrise",
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w300,
+                                   fontSize: 16,
+                                    fontWeight: FontWeight.w400,
                                   ),
                                 ),
                                     const SizedBox(height: 3),
@@ -138,16 +138,53 @@ class HomeScreen extends StatelessWidget {
                                   "5:34 am",
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 20,
+                                    fontSize: 18,
                                     fontWeight: FontWeight.w700,
                                   ),
                                 ),
                               ],
                             )
                           ],
-                        )
+                        ),
+                         Row(
+                          children: [
+                            Image.asset(
+                              "assets/12.png",
+                              scale: 8,
+                            ),
+                            const SizedBox(height: 5),
+                            const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Sunset",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                    const SizedBox(height: 3),
+                                    Text(
+                                  "5:34 am",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
                       ],
-                    )
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 5.0),
+                      child: Divider(
+                        color: Colors.grey,
+                      ),
+                    ),
                   ],
                 ),
               )
