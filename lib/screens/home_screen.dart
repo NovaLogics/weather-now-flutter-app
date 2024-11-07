@@ -61,6 +61,15 @@ class HomeScreen extends StatelessWidget {
                   decoration: BoxDecoration(color: Colors.transparent),
                 ),
                 ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  child: Column(
+                    children: [
+                      
+                    ],
+                  ),
+                )
             ],
           ),
         ),
