@@ -58,23 +58,34 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
-                child: const Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "Colombo",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w300,
                       ),
                     ),
-                    SizedBox(height: 8),
-                    Text(
+                    const SizedBox(height: 8),
+                    const Text(
                       "Good Morning",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 25,
                         fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                    Image.asset(
+                      "assets/1.png"
+                    ),
+                    const Text(
+                      "28°C",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 55,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ],
