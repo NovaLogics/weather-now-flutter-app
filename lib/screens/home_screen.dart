@@ -185,6 +185,73 @@ class HomeScreen extends StatelessWidget {
                         color: Colors.grey,
                       ),
                     ),
+                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Image.asset(
+                              "assets/13.png",
+                              scale: 8,
+                            ),
+                            const SizedBox(height: 5),
+                            const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Temp Max",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                   fontSize: 16,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                    const SizedBox(height: 3),
+                                    Text(
+                                  "32°C",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                         Row(
+                          children: [
+                            Image.asset(
+                              "assets/14.png",
+                              scale: 8,
+                            ),
+                            const SizedBox(height: 5),
+                            const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Temp Min",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                    const SizedBox(height: 3),
+                                    Text(
+                                  "22°C",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               )
