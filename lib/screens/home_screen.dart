@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         systemOverlayStyle:
-            const SystemUiOverlayStyle(statusBarBrightness: Brightness.dark),
+            const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(40, 1.2 * kToolbarHeight, 40, 20),
