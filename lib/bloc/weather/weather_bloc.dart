@@ -5,8 +5,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:weather/weather.dart';
 import 'package:weather_now/data/data.dart';
 
-part 'weather_bloc_event.dart';
-part 'weather_bloc_state.dart';
+part 'weather_event.dart';
+part 'weather_state.dart';
 
 class WeatherBloc extends Bloc<WeatherBlocEvent, WeatherBlocState> {
   WeatherBloc() : super(WeatherBlocInitial()) {
