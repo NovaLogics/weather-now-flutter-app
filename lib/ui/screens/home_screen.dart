@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
       case == 800:
         imagePath = WeatherImages.clearSky;
       case > 800 && <= 804:
-        imagePath = WeatherImages.clouds;
+        imagePath = WeatherImages.fewClouds;
       default:
         imagePath = WeatherImages.clouds;
     }
@@ -126,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
             } else {
               return _buildRectangle(
                 const AlignmentDirectional(0, -1.2),
-                Colors.orange,
+                Colors.blueAccent,
                 300,
                 600,
               ); // Show empty container while loading or failure

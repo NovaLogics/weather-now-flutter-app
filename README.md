@@ -19,6 +19,7 @@ This Flutter app fetches live weather data based on your current location using 
 <div align="center">
 
 <img src="./_archive/screenshots/screen_home.png" width="320" height="720" />
+<img src="./_archive/screenshots/screen_home_clear.png" width="320" height="720" />
 <br>
 
 </div>

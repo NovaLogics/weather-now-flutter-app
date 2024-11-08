@@ -50,9 +50,7 @@ class WeatherHomeScreen extends StatelessWidget {
       future: LocationService.determinePosition(),
       builder: (context, snap) {
         if (snap.connectionState == ConnectionState.waiting) {
-          return const Scaffold(
-            body: Center(child: CircularProgressIndicator()),
-          );
+          return _loadingIndicator();
         } else if (snap.hasData) {
           final position = snap.data as Position;
           context.read<WeatherBloc>().add(FetchWeather(position));
@@ -65,6 +63,32 @@ class WeatherHomeScreen extends StatelessWidget {
       },
     );
   }
+
+  
+
+}
+
+Widget _loadingIndicator() {
+  return  const Scaffold(
+    backgroundColor: Colors.black, // Set background color to black
+    body: Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center, // Center both vertically and horizontally
+        children: [
+          CircularProgressIndicator(),
+          SizedBox(height: 20), // Space between the progress indicator and text
+          Text(
+            'Loading weather info...',
+            style: TextStyle(
+              color: Colors.white, // White text color
+              fontSize: 16, // Adjust font size as needed
+              fontWeight: FontWeight.w400, // Adjust font weight as needed
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
 }
 
 /// Load environment variables from the .env file.

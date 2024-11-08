@@ -8,6 +8,7 @@ class WeatherImages {
   static const String atmosphere = '${_baseImagePath}atmosphere.png';
   static const String clearSky = '${_baseImagePath}clear_sky.png';
   static const String clouds = '${_baseImagePath}clouds.png';
+  static const String fewClouds = '${_baseImagePath}few_clouds.png';
 }
 
 class WeatherIcons {
