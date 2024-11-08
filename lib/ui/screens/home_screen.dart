@@ -18,21 +18,21 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget getWeatherIcon(int code) {
     switch (code) {
       case >= 200 && < 300:
-        return Image.asset('assets/thunderstorm.png', scale: 1.8);
+        return Image.asset('assets/images/thunderstorm.png', scale: 1.8);
       case >= 300 && < 400:
-        return Image.asset('assets/drizzle.png', scale: 1.8);
+        return Image.asset('assets/images/drizzle.png', scale: 1.8);
       case >= 500 && < 600:
-        return Image.asset('assets/rain.png', scale: 1.8);
+        return Image.asset('assets/images/rain.png', scale: 1.8);
       case >= 600 && < 700:
-        return Image.asset('assets/snow.png', scale: 1.8);
+        return Image.asset('assets/images/snow.png', scale: 1.8);
       case >= 700 && < 800:
-        return Image.asset('assets/atmosphere.png', scale: 1.8);
+        return Image.asset('assets/images/atmosphere.png', scale: 1.8);
       case == 800:
-        return Image.asset('assets/clear_sky.png', scale: 1.8);
+        return Image.asset('assets/images/clear_sky.png', scale: 1.8);
       case > 800 && <= 804:
-        return Image.asset('assets/clouds.png', scale: 1.8);
+        return Image.asset('assets/images/clouds.png', scale: 1.8);
       default:
-        return Image.asset('assets/clouds.png', scale: 1.8);
+        return Image.asset('assets/images/clouds.png', scale: 1.8);
     }
   }
 
@@ -241,8 +241,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        _buildSunTime("Sunrise", state.weather.sunrise!,"assets/ic_sun.png"),
-        _buildSunTime("Sunset", state.weather.sunset!,"assets/ic_moon.png"),
+        _buildSunTime("Sunrise", state.weather.sunrise!,"assets/icons/ic_sun.png"),
+        _buildSunTime("Sunset", state.weather.sunset!,"assets/icons/ic_moon.png"),
       ],
     );
   }
@@ -286,8 +286,8 @@ class _HomeScreenState extends State<HomeScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _buildTemperatureDetail("Temp Max", state.weather.tempMax!,"assets/ic_temp_max.png"),
-            _buildTemperatureDetail("Temp Min", state.weather.tempMin!, "assets/ic_temp_min.png"),
+            _buildTemperatureDetail("Temp Max", state.weather.tempMax!,"assets/icons/ic_temp_max.png"),
+            _buildTemperatureDetail("Temp Min", state.weather.tempMin!, "assets/icons/ic_temp_min.png"),
           ],
         ),
       ],
