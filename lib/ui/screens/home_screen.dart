@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
       case == 800:
         imagePath = WeatherImages.clearSky;
       case > 800 && <= 804:
-        imagePath = WeatherImages.clouds;
+        imagePath = WeatherImages.fewClouds;
       default:
         imagePath = WeatherImages.clouds;
     }
