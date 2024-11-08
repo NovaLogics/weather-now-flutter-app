@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:weather/weather.dart';
 import 'package:weather_now/bloc/weather/weather_bloc.dart';
+import 'package:weather_now/util/constants.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,24 +17,28 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   Widget getWeatherIcon(int code) {
+    late String imagePath;
+
     switch (code) {
       case >= 200 && < 300:
-        return Image.asset('assets/images/thunderstorm.png', scale: 1.8);
+        imagePath = WeatherImages.thunderstorm;
       case >= 300 && < 400:
-        return Image.asset('assets/images/drizzle.png', scale: 1.8);
+        imagePath = WeatherImages.drizzle;
       case >= 500 && < 600:
-        return Image.asset('assets/images/rain.png', scale: 1.8);
+        imagePath = WeatherImages.rain;
       case >= 600 && < 700:
-        return Image.asset('assets/images/snow.png', scale: 1.8);
+        imagePath = WeatherImages.snow;
       case >= 700 && < 800:
-        return Image.asset('assets/images/atmosphere.png', scale: 1.8);
+        imagePath = WeatherImages.atmosphere;
       case == 800:
-        return Image.asset('assets/images/clear_sky.png', scale: 1.8);
+        imagePath = WeatherImages.clearSky;
       case > 800 && <= 804:
-        return Image.asset('assets/images/clouds.png', scale: 1.8);
+        imagePath = WeatherImages.clouds;
       default:
-        return Image.asset('assets/images/clouds.png', scale: 1.8);
+        imagePath = WeatherImages.clouds;
     }
+
+    return Image.asset(imagePath, scale: 1.8);
   }
 
   String getGreeting() {
@@ -241,8 +246,16 @@ class _HomeScreenState extends State<HomeScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        _buildSunTime("Sunrise", state.weather.sunrise!,"assets/icons/ic_sun.png"),
-        _buildSunTime("Sunset", state.weather.sunset!,"assets/icons/ic_moon.png"),
+        _buildSunTime(
+          "Sunrise",
+          state.weather.sunrise!,
+          WeatherIcons.sunrise,
+        ),
+        _buildSunTime(
+          "Sunset",
+          state.weather.sunset!,
+          WeatherIcons.sunset,
+        ),
       ],
     );
   }
@@ -286,15 +299,24 @@ class _HomeScreenState extends State<HomeScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _buildTemperatureDetail("Temp Max", state.weather.tempMax!,"assets/icons/ic_temp_max.png"),
-            _buildTemperatureDetail("Temp Min", state.weather.tempMin!, "assets/icons/ic_temp_min.png"),
+            _buildTemperatureDetail(
+              "Temp Max",
+              state.weather.tempMax!,
+              WeatherIcons.temperatureMax,
+            ),
+            _buildTemperatureDetail(
+              "Temp Min",
+              state.weather.tempMin!,
+              WeatherIcons.temperatureMin,
+            ),
           ],
         ),
       ],
     );
   }
 
-  Widget _buildTemperatureDetail(String label, Temperature temp, String iconPath) {
+  Widget _buildTemperatureDetail(
+      String label, Temperature temp, String iconPath) {
     return Row(
       children: [
         Image.asset(iconPath, scale: 8),
