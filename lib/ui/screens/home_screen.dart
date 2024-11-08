@@ -38,7 +38,33 @@ class _HomeScreenState extends State<HomeScreen> {
         imagePath = WeatherImages.clouds;
     }
 
-    return Image.asset(imagePath, scale: 1.8);
+  return Image.asset(WeatherImages.thunderstorm, scale: 1.8);
+   // return Image.asset(imagePath, scale: 1.8);
+  }
+
+  Color getBacgroundColur(int code) {
+    late String imagePath;
+
+    switch (code) {
+      case >= 200 && < 300:
+        imagePath = WeatherImages.thunderstorm;
+      case >= 300 && < 400:
+        imagePath = WeatherImages.drizzle;
+      case >= 500 && < 600:
+        imagePath = WeatherImages.rain;
+      case >= 600 && < 700:
+        imagePath = WeatherImages.snow;
+      case >= 700 && < 800:
+        imagePath = WeatherImages.atmosphere;
+      case == 800:
+        imagePath = WeatherImages.clearSky;
+      case > 800 && <= 804:
+        imagePath = WeatherImages.clouds;
+      default:
+        imagePath = WeatherImages.clouds;
+    }
+
+    return Colors.orange;
   }
 
   String getGreeting() {
@@ -91,8 +117,25 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         _buildCircle(const AlignmentDirectional(3, -0.3), Colors.deepPurple),
         _buildCircle(const AlignmentDirectional(-3, -0.3), Colors.deepPurple),
-        _buildRectangle(
-            const AlignmentDirectional(0, -1.2), Colors.orange, 300, 600),
+        BlocBuilder<WeatherBloc, WeatherState>(
+          builder: (context, state) {
+            if (state is WeatherSuccess) {
+              return _buildRectangle(
+                const AlignmentDirectional(0, -1.2),
+                getBacgroundColur(state.weather.weatherConditionCode!),
+                300,
+                600,
+              );
+            } else {
+              return _buildRectangle(
+                const AlignmentDirectional(0, -1.2),
+                Colors.orange,
+                300,
+                600,
+              ); // Show empty container while loading or failure
+            }
+          },
+        ),
       ],
     );
   }
