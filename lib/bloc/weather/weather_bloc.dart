@@ -8,13 +8,13 @@ import 'package:weather_now/data/data.dart';
 part 'weather_event.dart';
 part 'weather_state.dart';
 
-class WeatherBloc extends Bloc<WeatherBlocEvent, WeatherBlocState> {
-  WeatherBloc() : super(WeatherBlocInitial()) {
+class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
+  WeatherBloc() : super(WeatherInitial()) {
     on<FetchWeather>((event, emit) async {
-      emit(WeatherBlocLoading());
+      emit(WeatherLoading());
       try {
         WeatherFactory weatherFactory =
-            WeatherFactory(API_KEY, language: Language.ENGLISH);
+            WeatherFactory("api_key_1234", language: Language.ENGLISH);
 
         Weather weather = await weatherFactory.currentWeatherByLocation(
           event.position.latitude,
@@ -25,9 +25,9 @@ class WeatherBloc extends Bloc<WeatherBlocEvent, WeatherBlocState> {
           print(weather);
         }
 
-        emit(WeatherBlocSuccess(weather));
+        emit(WeatherSuccess(weather));
       } catch (e) {
-        emit(WeatherBlocFailure());
+        emit(WeatherFailure());
       }
     });
   }

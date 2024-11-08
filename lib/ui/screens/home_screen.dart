@@ -84,9 +84,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   decoration: const BoxDecoration(color: Colors.transparent),
                 ),
               ),
-              BlocBuilder<WeatherBloc, WeatherBlocState>(
+              BlocBuilder<WeatherBloc, WeatherState>(
                 builder: (context, state) {
-                  if (state is WeatherBlocSuccess) {
+                  if (state is WeatherSuccess) {
                     return SizedBox(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,
