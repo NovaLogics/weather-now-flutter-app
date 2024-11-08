@@ -185,7 +185,10 @@ class _HomeScreenState extends State<HomeScreen> {
         Text(
           getGreeting(),
           style: const TextStyle(
-              color: Colors.white, fontSize: 25, fontWeight: FontWeight.w400),
+            color: Colors.white,
+            fontSize: 25,
+            fontWeight: FontWeight.w400,
+          ),
         ),
       ],
     );
@@ -200,7 +203,10 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Text(
         "${state.weather.temperature!.celsius?.round()}°C",
         style: const TextStyle(
-            color: Colors.white, fontSize: 55, fontWeight: FontWeight.w600),
+          color: Colors.white,
+          fontSize: 52,
+          fontWeight: FontWeight.w600,
+        ),
       ),
     );
   }
@@ -210,7 +216,10 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Text(
         state.weather.weatherMain!.toUpperCase(),
         style: const TextStyle(
-            color: Colors.white, fontSize: 25, fontWeight: FontWeight.w500),
+          color: Colors.white,
+          fontSize: 25,
+          fontWeight: FontWeight.w500,
+        ),
       ),
     );
   }
@@ -220,7 +229,10 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Text(
         DateFormat("EEEE dd -").add_jm().format(state.weather.date!),
         style: const TextStyle(
-            color: Colors.white, fontSize: 16, fontWeight: FontWeight.w300),
+          color: Colors.white,
+          fontSize: 18,
+          fontWeight: FontWeight.w300,
+        ),
       ),
     );
   }
@@ -229,16 +241,16 @@ class _HomeScreenState extends State<HomeScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        _buildSunTime("Sunrise", state.weather.sunrise!),
-        _buildSunTime("Sunset", state.weather.sunset!),
+        _buildSunTime("Sunrise", state.weather.sunrise!,"assets/11.png"),
+        _buildSunTime("Sunset", state.weather.sunset!,"assets/12.png"),
       ],
     );
   }
 
-  Widget _buildSunTime(String label, DateTime time) {
+  Widget _buildSunTime(String label, DateTime time, String iconPath) {
     return Row(
       children: [
-        Image.asset("assets/11.png", scale: 8),
+        Image.asset(iconPath, scale: 8),
         const SizedBox(height: 5),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -274,18 +286,18 @@ class _HomeScreenState extends State<HomeScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _buildTemperatureDetail("Temp Max", state.weather.tempMax!),
-            _buildTemperatureDetail("Temp Min", state.weather.tempMin!),
+            _buildTemperatureDetail("Temp Max", state.weather.tempMax!,"assets/13.png"),
+            _buildTemperatureDetail("Temp Min", state.weather.tempMin!, "assets/14.png"),
           ],
         ),
       ],
     );
   }
 
-  Widget _buildTemperatureDetail(String label, Temperature temp) {
+  Widget _buildTemperatureDetail(String label, Temperature temp, String iconPath) {
     return Row(
       children: [
-        Image.asset("assets/13.png", scale: 8),
+        Image.asset(iconPath, scale: 8),
         const SizedBox(height: 5),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -294,16 +306,16 @@ class _HomeScreenState extends State<HomeScreen> {
               label,
               style: const TextStyle(
                   color: Colors.white,
-                  fontSize: 16,
+                  fontSize: 14,
                   fontWeight: FontWeight.w400),
             ),
             const SizedBox(height: 3),
             Text(
-              "${temp.celsius?.round()}°C",
+              "${temp.celsius?.toStringAsFixed(1)}°C",
               style: const TextStyle(
                   color: Colors.white,
                   fontSize: 18,
-                  fontWeight: FontWeight.w700),
+                  fontWeight: FontWeight.w600),
             ),
           ],
         ),
