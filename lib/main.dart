@@ -1,79 +1,78 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:geolocator/geolocator.dart';
 
-import 'package:weather_now/bloc/weather_bloc.dart';
-import 'package:weather_now/screens/home_screen.dart';
+import 'package:weather_now/bloc/weather/weather_bloc.dart';
+import 'package:weather_now/services/api_service.dart';
+import 'package:weather_now/services/location_service.dart';
+import 'package:weather_now/services/weather_service.dart';
+import 'package:weather_now/ui/screens/home_screen.dart';
 
-void main() => runApp(const WeatherNowApp());
+void main() async {
+  // Ensure Flutter is initialized
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Load environment variables
+  await _loadEnvVariables();
+
+  runApp(
+    WeatherNowApp(
+      weatherService: WeatherService(apiKey: ApiService().weatherApiKey),
+    ),
+  );
+}
 
 class WeatherNowApp extends StatelessWidget {
-  const WeatherNowApp({super.key});
+  final WeatherService weatherService;
+
+  const WeatherNowApp({super.key, required this.weatherService});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FutureBuilder(
-        future: _determinePosition(),
-        builder: (context, snap) {
-          if (snap.hasData) {
-            return BlocProvider<WeatherBloc>(
-              create: (context) => WeatherBloc()..add(
-                FetchWeather(snap.data as Position)
-                ),
-              child: const HomeScreen(),
-            );
-          } else {
-            return const Scaffold(
-              body: Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
-          }
-        },
+      home: BlocProvider<WeatherBloc>(
+        create: (context) =>
+            WeatherBloc(weatherFactory: weatherService.weatherFactory),
+        child: const WeatherHomeScreen(),
       ),
     );
   }
 }
 
-/// Determine the current position of the device.
-///
-/// When the location services are not enabled or permissions
-/// are denied the `Future` will return an error.
-Future<Position> _determinePosition() async {
-  bool serviceEnabled;
-  LocationPermission permission;
+class WeatherHomeScreen extends StatelessWidget {
+  const WeatherHomeScreen({super.key});
 
-  // Test if location services are enabled.
-  serviceEnabled = await Geolocator.isLocationServiceEnabled();
-  if (!serviceEnabled) {
-    // Location services are not enabled don't continue
-    // accessing the position and request users of the
-    // App to enable the location services.
-    return Future.error('Location services are disabled.');
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: LocationService.determinePosition(),
+      builder: (context, snap) {
+        if (snap.connectionState == ConnectionState.waiting) {
+          return const Scaffold(
+            body: Center(child: CircularProgressIndicator()),
+          );
+        } else if (snap.hasData) {
+          final position = snap.data as Position;
+          context.read<WeatherBloc>().add(FetchWeather(position));
+          return const HomeScreen();
+        } else {
+          return Scaffold(
+            body: Center(child: Text(snap.error.toString())),
+          );
+        }
+      },
+    );
   }
+}
 
-  permission = await Geolocator.checkPermission();
-  if (permission == LocationPermission.denied) {
-    permission = await Geolocator.requestPermission();
-    if (permission == LocationPermission.denied) {
-      // Permissions are denied, next time you could try
-      // requesting permissions again (this is also where
-      // Android's shouldShowRequestPermissionRationale
-      // returned true. According to Android guidelines
-      // your App should show an explanatory UI now.
-      return Future.error('Location permissions are denied');
-    }
+/// Load environment variables from the .env file.
+/// Throws an exception if there is an error loading the file.
+Future<void> _loadEnvVariables() async {
+  try {
+    await dotenv.load(fileName: ".env");
+  } catch (e) {
+    throw Exception('Error loading .env file: $e');
   }
-
-  if (permission == LocationPermission.deniedForever) {
-    // Permissions are denied forever, handle appropriately.
-    return Future.error(
-        'Location permissions are permanently denied, we cannot request permissions.');
-  }
-
-  // When we reach here, permissions are granted and we can
-  // continue accessing the position of the device.
-  return await Geolocator.getCurrentPosition();
 }
