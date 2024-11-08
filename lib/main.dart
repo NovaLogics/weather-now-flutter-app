@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 
 import 'package:weather_now/bloc/weather/weather_bloc.dart';
-import 'package:weather_now/screens/home_screen.dart';
+import 'package:weather_now/ui/screens/home_screen.dart';
 
 void main() => runApp(const WeatherNowApp());
 
