@@ -18,21 +18,21 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget getWeatherIcon(int code) {
     switch (code) {
       case >= 200 && < 300:
-        return Image.asset('assets/1.png', scale: 1.8);
+        return Image.asset('assets/thunderstorm.png', scale: 1.8);
       case >= 300 && < 400:
-        return Image.asset('assets/2.png', scale: 1.8);
+        return Image.asset('assets/drizzle.png', scale: 1.8);
       case >= 500 && < 600:
-        return Image.asset('assets/3.png', scale: 1.8);
+        return Image.asset('assets/rain.png', scale: 1.8);
       case >= 600 && < 700:
-        return Image.asset('assets/4.png', scale: 1.8);
+        return Image.asset('assets/snow.png', scale: 1.8);
       case >= 700 && < 800:
-        return Image.asset('assets/5.png', scale: 1.8);
+        return Image.asset('assets/atmosphere.png', scale: 1.8);
       case == 800:
-        return Image.asset('assets/6.png', scale: 1.8);
+        return Image.asset('assets/clear_sky.png', scale: 1.8);
       case > 800 && <= 804:
-        return Image.asset('assets/7.png', scale: 1.8);
+        return Image.asset('assets/clouds.png', scale: 1.8);
       default:
-        return Image.asset('assets/7.png', scale: 1.8);
+        return Image.asset('assets/clouds.png', scale: 1.8);
     }
   }
 
@@ -241,8 +241,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        _buildSunTime("Sunrise", state.weather.sunrise!,"assets/11.png"),
-        _buildSunTime("Sunset", state.weather.sunset!,"assets/12.png"),
+        _buildSunTime("Sunrise", state.weather.sunrise!,"assets/ic_sun.png"),
+        _buildSunTime("Sunset", state.weather.sunset!,"assets/ic_moon.png"),
       ],
     );
   }
@@ -286,8 +286,8 @@ class _HomeScreenState extends State<HomeScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _buildTemperatureDetail("Temp Max", state.weather.tempMax!,"assets/13.png"),
-            _buildTemperatureDetail("Temp Min", state.weather.tempMin!, "assets/14.png"),
+            _buildTemperatureDetail("Temp Max", state.weather.tempMax!,"assets/ic_temp_max.png"),
+            _buildTemperatureDetail("Temp Min", state.weather.tempMin!, "assets/ic_temp_min.png"),
           ],
         ),
       ],
