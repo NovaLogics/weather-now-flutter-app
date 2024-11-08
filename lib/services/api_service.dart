@@ -10,6 +10,7 @@ class ApiService {
 
 
   Future<void> fetchData() async {
+    // ignore: unused_local_variable
     final url = '$baseUrl/data?api_key=$weatherApiKey';
   }
 }
