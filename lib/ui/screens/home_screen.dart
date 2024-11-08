@@ -38,8 +38,8 @@ class _HomeScreenState extends State<HomeScreen> {
         imagePath = WeatherImages.clouds;
     }
 
-  return Image.asset(WeatherImages.thunderstorm, scale: 1.8);
-   // return Image.asset(imagePath, scale: 1.8);
+    return Image.asset(WeatherImages.rain, scale: 1.8);
+    // return Image.asset(imagePath, scale: 1.8);
   }
 
   Color getBacgroundColur(int code) {
@@ -47,11 +47,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
     switch (code) {
       case >= 200 && < 300:
-        imagePath = WeatherImages.thunderstorm;
+        return Colors.purpleAccent[700] ?? Colors.purpleAccent;
       case >= 300 && < 400:
-        imagePath = WeatherImages.drizzle;
+       return Colors.deepPurpleAccent[400] ?? Colors.deepPurpleAccent;
       case >= 500 && < 600:
-        imagePath = WeatherImages.rain;
+        return Colors.indigoAccent[400] ?? Colors.indigoAccent;
       case >= 600 && < 700:
         imagePath = WeatherImages.snow;
       case >= 700 && < 800:
@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
         imagePath = WeatherImages.clouds;
     }
 
-    return Colors.orange;
+    return Colors.indigoAccent[400] ?? Colors.indigoAccent;
   }
 
   String getGreeting() {
