@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:weather_now/src/bloc/weather/weather_bloc.dart';
+import 'package:weather_now/src/features/weather/bloc/weather/weather_bloc.dart';
 import 'package:weather_now/src/core/services/location_service.dart';
 import 'package:weather_now/src/core/services/weather_service.dart';
-import 'package:weather_now/src/ui/screens/home_screen.dart';
+import 'package:weather_now/src/features/weather/ui/screens/home_screen.dart';
 
 class WeatherNowApp extends StatelessWidget {
   final WeatherService weatherService;
