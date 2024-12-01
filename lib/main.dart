@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:weather_now/src/app.dart';
-import 'package:weather_now/src/services/api_service.dart';
-import 'package:weather_now/src/services/weather_service.dart';
+import 'package:weather_now/src/core/services/api_service.dart';
+import 'package:weather_now/src/core/services/weather_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
