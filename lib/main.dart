@@ -3,11 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:geolocator/geolocator.dart';
 
-import 'package:weather_now/bloc/weather/weather_bloc.dart';
-import 'package:weather_now/services/api_service.dart';
-import 'package:weather_now/services/location_service.dart';
-import 'package:weather_now/services/weather_service.dart';
-import 'package:weather_now/ui/screens/home_screen.dart';
+import 'package:weather_now/src/bloc/weather/weather_bloc.dart';
+import 'package:weather_now/src/services/api_service.dart';
+import 'package:weather_now/src/services/location_service.dart';
+import 'package:weather_now/src/services/weather_service.dart';
+import 'package:weather_now/src/ui/screens/home_screen.dart';
 
 void main() async {
   // Ensure Flutter is initialized

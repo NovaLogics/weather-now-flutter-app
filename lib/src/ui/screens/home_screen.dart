@@ -5,8 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:weather/weather.dart';
-import 'package:weather_now/bloc/weather/weather_bloc.dart';
-import 'package:weather_now/util/constants.dart';
+import 'package:weather_now/src/bloc/weather/weather_bloc.dart';
+import 'package:weather_now/src/util/constants.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
